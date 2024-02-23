@@ -1,0 +1,633 @@
+.container {
+  height: 100vh;
+  max-width: 100vh;
+  position: relative;
+  margin: 0 auto;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.start {
+  &__background {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+    background: url("../images/background-1.png") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    z-index: -2;
+  }
+}
+
+.bingo-logo-1 {
+  height: 100vh; 
+  width: 100%; 
+  position: absolute;
+  background: url("../images/bingo-logo-1.png") no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  animation-name: bingo-logo-appearance;
+  animation-duration: 0.2s ;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+}
+
+.candice {
+  height: 100vh; 
+  width: 100%; 
+  position: absolute;
+  background: url("../images/Candice.png") no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  animation-name: candice-appearance;
+  animation-duration: 0.35s ;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+  z-index: -1;
+}
+
+.table-1 {
+  height: 100vh; 
+  width: 100%; 
+  position: absolute;
+  background: url("../images/table-1.png") no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  animation-name: table-appearance;
+  animation-duration: 0.2s ;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+}
+
+.blitzy {
+  height: 100vh; 
+  width: 100%; 
+  position: absolute;
+  background: url("../images/Blitzy-1.png") no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  animation-name: blitzy-appearance;
+  animation-duration: 0.3s ;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+
+  &-disappearance {
+    animation-name: blitzy-disappearance;
+    animation-duration: 0.3s ;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-in-out;
+  }
+
+  &-without-hand {
+    height: 39vh; 
+    width: 29vh;  
+    position: absolute;
+    bottom: 0;
+    left: 21vh;
+    background: url("../images/Blitzy-without-hand.png") no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+
+  &-hand {
+    height: 35vh; 
+    width: 31vh; 
+    position: absolute;
+    background: url("../images/Blitzy-hand.png") no-repeat;
+    background-size: contain;
+    bottom: 1vh;
+
+    &.animated {
+      animation-name: waving;
+      animation-duration: 1.3s ;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  &-waving {
+    position: absolute;
+    bottom: 0;
+    left: calc(65% - 31vh);
+    animation-name: waving-blitzy-appearance;
+    animation-duration: 0.3s ;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-in-out;
+  
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+.play-now-btn {
+  height: 12vh; 
+  width: 40vh; 
+  position: absolute;
+  left: calc(50% - 20vh);
+  bottom: 5vh;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  background: url("../images/play-now-btn.png") no-repeat;
+  background-size: contain;
+  transform: scale(1);
+  cursor: pointer;
+  z-index: 3;
+  animation-name: start-button-appearance;
+  animation-duration: 0.3s ;
+  animation-timing-function: ease;
+  animation-iteration-count: initial;
+
+  &.animated {
+    animation-name: start-button-pulse;
+    animation-duration: 1.3s ;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
+
+.restart {
+  height: 7vh; 
+  width: 7vh; 
+  position: absolute;
+  bottom: 1.5vh;
+  right: calc(50% - 26.5vh);
+  background: url("../images/restart.png") no-repeat;
+  background-size: contain;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 3;
+  animation-name: restart-button-appearance;
+  animation-duration: 0.2s ;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+}
+
+.game {
+  &__container {
+    background-color: #454360;
+    overflow: hidden;
+  }
+
+  &__background {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+    background: url("../images/background-2.png") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+  }
+}
+
+.plates__wrapper {
+  position: absolute;
+  top: calc(25% - 10px);
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &-right {
+    height: 55%;
+    width: 50%;
+    position: relative;
+    bottom: 0;
+    top: 0;
+    right: 0;
+
+    & .win-1 {
+      left: 10.5vh;
+      bottom: 2vh;
+      height: 9vh;
+      width: 18vh;
+    }
+
+    & .win-2 {
+      left: 10.8vh;
+      bottom: 2vh;
+      height: 13vh;
+      width: 17vh;
+    }
+
+    & .fail-1 {
+      left: 10vh;
+      bottom: 0;
+      height: 15vh;
+      width: 19.2vh;
+    }
+
+    & .maindish_led-type-2 {
+      left: 6.8vh;
+    }
+  }
+
+  &-left {
+    height: 55%;
+    width: 50%;
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 0;
+
+    & .win-1 {
+      right: 9.5vh;
+      bottom: 2vh;
+      height: 9vh;
+      width: 18vh;
+    }
+
+    & .win-2 {
+      right: 10vh;
+      bottom: 2vh;
+      height: 13vh;
+      width: 17vh;
+    }
+
+    & .fail-1 {
+      right: 9.3vh;
+      bottom: 0;
+      height: 15vh;
+      width: 19.2vh;
+    }
+
+    & .maindish_led-type-2 {
+      right: 6.2vh;
+    }
+  }
+
+  &-center {
+    height: 55%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    & .win-1 {
+      bottom: 3.5vh;
+      height: 10vh;
+      width: 20vh;
+      left: calc(50% - 9.5vh);
+    }
+
+    & .win-2 {
+      bottom: 3.2vh;
+      height: 15vh;
+      width: 20vh;
+      left: calc(50% - 9.5vh);
+    }
+
+    & .fail-1 {
+      bottom: 3.5vh;
+      height: 15.8vh;
+      width: 23.7vh;
+      left: calc(50% - 11.25vh);
+    }
+
+    & .maindish_led-type-1 {
+      left: calc(50% - 14vh);
+    }
+  }
+}
+
+.win-1 {
+  position: absolute;
+  background: url(../images/win-1.png) no-repeat;
+  background-size: contain;
+}
+
+.win-2 {
+  position: absolute;
+  background: url(../images/win-2.png) no-repeat;
+  background-size: contain;
+}
+
+.fail-1 {
+  position: absolute;
+  background: url(../images/fail-1.png) no-repeat;
+  background-size: contain;
+}
+
+.maindish_led {
+  &-type-1 {
+    height: 22.7vh;
+    width: 28.5vh;
+    position: absolute;
+    background: url(../images/maindish_led.png) no-repeat;
+    background-size: contain;
+    bottom: 0;
+    z-index: 3;
+    cursor: pointer;
+
+    &.open-center {
+      animation-name: open-center;
+      animation-duration: 0.5s ;
+      animation-iteration-count: initial;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &-type-2 {
+    height: 18.9vh;
+    width: 25vh;
+    position: absolute;
+    background: url(../images/maindish_led-copy.png) no-repeat;
+    background-size: contain;
+    bottom: 0;
+    z-index: 3;
+    cursor: pointer;
+
+    &.open-left {
+      animation-name: open-left;
+      animation-duration: 0.5s ;
+      animation-iteration-count: initial;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    &.open-right {
+      animation-name: open-right;
+      animation-duration: 0.5s ;
+      animation-iteration-count: initial;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.win {
+  &-result {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+  
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &-stamp {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+    background: url("../images/win-stamp.png") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    z-index: 5;
+    animation-name: win-fail-appearance;
+    animation-duration: 0.5s ;
+    animation-iteration-count: initial;
+    animation-timing-function: ease;
+  }
+}
+
+.fail {
+  &-result {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+  
+    &.hidden {
+      display: none;
+    }
+  }
+  &-stamp {
+    height: 100vh; 
+    width: 100%; 
+    position: absolute;
+    background: url("../images/fail-stamp.png") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    z-index: 5;
+    animation-name: win-fail-appearance;
+    animation-duration: 0.5s ;
+    animation-iteration-count: initial;
+    animation-timing-function: ease;
+  }
+}
+
+.rays {
+  height: 100vh; 
+  width: 100%; 
+  position: absolute;
+  background: url("../images/rays.png") no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  opacity: 0.6;
+  z-index: 4;
+  box-shadow: 0vh 0vh 10vh 11vh rgba(255, 255, 255, 1) inset,
+              0vh -18vh 9vh 10vh rgba(255, 255, 255, 1) inset,
+              -9vh 0vh 9vh 10vh rgba(255, 255, 255, 1) inset,
+              9vh 0vh 9vh 10vh rgba(255, 255, 255, 1) inset;
+  animation-name: rays-appearance;
+  animation-duration: 0.5s ;
+  animation-iteration-count: initial;
+  animation-timing-function: ease;
+}
+
+@keyframes bingo-logo-appearance {
+  from {top: -10vh;}
+  to {top: 0;}
+}
+
+@keyframes candice-appearance {
+  from {left: -200px; top: -100vh;}
+  to {left: 0; top: 0;}
+}
+
+@keyframes table-appearance {
+  from {top: 10vh;}
+  to {top: 0;}
+}
+
+@keyframes blitzy-appearance {
+  from {left: 200px; top: -100vh;}
+  to {left: 0; top: 0;}
+}
+
+@keyframes start-button-appearance {
+  from {bottom: 0;}
+  to {bottom: 5vh;}
+}
+
+@keyframes start-button-pulse {
+  from {  transform: scale(1);}
+  50% {  transform: scale(1.1);}
+  to {  transform: scale(1);}
+}
+
+@keyframes restart-button-appearance {
+  from {right: 0;}
+  to {right: calc(50% - 26.5vh);}
+}
+
+@keyframes open-left {
+  from {transform: translate(0px, 0px) rotate(0deg); bottom: 0vh;}
+  to{transform: translate(25px, -25px) rotate(30deg); bottom: 12vh;}
+}
+
+@keyframes open-right  {
+  from {transform: translate(0px, 0px) rotate(0deg); bottom: 0vh;}
+  to{transform: translate(-25px, -25px) rotate(-30deg); bottom: 12vh;}
+}
+
+@keyframes open-center  {
+  from {transform: translate(0px, 0px) rotate(0deg); bottom: 0vh;}
+  to{transform: translate(-25px, -25px) rotate(-30deg); bottom: 15vh;}
+}
+
+@keyframes waving {
+  from {transform: translate(0px, 0px) rotate(0deg);}
+  50%{transform: translate(8px, -12px) rotate(8deg);}
+  to {transform: translate(0px, 0px) rotate(0deg);}
+}
+
+@keyframes waving-blitzy-appearance {
+  from {bottom: -39vh;}
+  to {bottom: 4vh;}
+}
+
+@keyframes blitzy-disappearance {
+  from {bottom: 4vh;}
+  to {bottom: -39vh;}
+}
+
+@keyframes win-fail-appearance {
+  from {transform: scale(5);}
+  25% {transform: scale(1.2);}
+  50% {transform: scale(1);}
+  75% {transform: scale(1.2);}
+  to {transform: scale(1);}
+}
+
+@keyframes rays-appearance {
+  from {transform: scale(5);}
+  25% {transform: scale(1.2);}
+  50% {transform: scale(1);}
+  75% {transform: scale(1.2);}
+  to {transform: scale(1);} 
+}
+
+@media (max-width: 500px) {
+  .play-now-btn {
+    height: 10vh; 
+    width: 34vh;
+    bottom: 6vh;
+    left: calc(50% - 17vh); 
+  }
+
+  .restart {
+    right: calc(50% - 22vh);
+  }
+
+  .game {
+  &__background {
+    height: 85vh; 
+  }
+  }
+
+  .rays {
+      box-shadow: 0vw 0vw 10vw 11vw rgba(255, 255, 255, 1) inset,
+              0vw -18vw 9vw 10vw rgba(255, 255, 255, 1) inset,
+              -9vw 0vw 9vw 10vw rgba(255, 255, 255, 1) inset,
+              9vw 0vw 9vw 10vw rgba(255, 255, 255, 1) inset;
+  }
+
+  .plates__wrapper {
+    top: calc(18% - 10px); 
+
+    &-left {
+      & .maindish_led-type-2 {
+        right: 5.2vh;
+      }
+
+      & .win-1 {
+        right: 7.8vh;
+        bottom: 1vh;
+        height: 8.3vh;
+        width: 16vh;
+      }
+
+      & .win-2 {
+        right: 7.8vh;
+        bottom: 1vh;
+        height: 12.5vh;
+        width: 16vh;
+      }
+
+      & .fail-1 {
+        right: 6.8vh;
+        height: 12.7vh;
+        width: 17.0vh;
+      }
+    }
+
+    &-right {
+      & .maindish_led-type-2 {
+        left: 5.6vh;
+      }
+
+      & .win-1 {
+        left: 8.7vh;
+        bottom: 1vh;
+        height: 8.3vh;
+        width: 16vh;
+      }
+
+      & .win-2 {
+        left: 8.3vh;
+        bottom: 1vh;
+        height: 12.5vh;
+        width: 16vh;
+      }
+
+      & .fail-1 {
+        left: 8vh;
+        height: 12.7vh;
+        width: 17.0vh;
+      }
+    }
+
+    &-center {
+      & .maindish_led-type-1 {
+        left: calc(50% - 12.6vh);
+      }
+
+      & .win-1 {
+        bottom: 4.2vh;
+        height: 10vh;
+        width: 18.5vh;
+        left: calc(50% - 9vh);
+      }
+
+      & .win-2 {
+        bottom: 4.3vh;
+        height: 14.8vh;
+        width: 18.6vh;
+        left: calc(50% - 9.2vh);
+      }
+
+      & .fail-1 {
+        height: 16vh;
+        width: 21.2vh;
+        left: calc(50% - 10vh);
+      }
+    }
+  }
+
+  .maindish_led {
+    &-type-1 {
+      height: 22.5vh;
+      width: 25.4vh;
+    }
+  
+    &-type-2 {
+      height: 16.2vh;
+      width: 21.7vh;
+    }
+  }
+}
